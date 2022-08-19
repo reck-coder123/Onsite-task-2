@@ -130,7 +130,13 @@ def registerJ():
 @app.route('/indexA')
 def indexA():
     if 'loggedin' in session:
-        return render_template("indexA.html")
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(
+            'SELECT usernameA FROM Job ')
+        Admin = cursor.fetchone()
+        if session['usernameJ']==Admin['usernameA']:
+            return render_template("indexA.html")
+        return redirect(url_for('LoginA'))
     return redirect(url_for('home'))
 
 @app.route('/indexJ')
@@ -143,14 +149,20 @@ def indexJ():
 def add_jobs():
     msg=''
     if 'loggedin' in session:
-        if request.method=='POST' and 'job' in request.form and 'description' in request.form:
-            job=request.form['job']
-            description=request.form['description']
-            cursor=mysql.connection.cursor()
-            cursor.execute('INSERT INTO info VALUES(NULL,%s,%s)',(job,description,))
-            mysql.connection.commit()
-            msg='Job profile added successfully'
-        return render_template("add_job.html",msg=msg)
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(
+            'SELECT usernameA FROM Job ')
+        Admin = cursor.fetchone()
+        if session['usernameJ']==Admin['usernameA']:
+            if request.method=='POST' and 'job' in request.form and 'description' in request.form:
+                job=request.form['job']
+                description=request.form['description']
+                cursor=mysql.connection.cursor()
+                cursor.execute('INSERT INTO info VALUES(NULL,%s,%s)',(job,description,))
+                mysql.connection.commit()
+                msg='Job profile added successfully'
+            return render_template("add_job.html",msg=msg)
+        return redirect(url_for('LoginA'))
     return redirect(url_for('LoginA'))
 
 @app.route("/display_job")
@@ -179,10 +191,16 @@ def select():
 @app.route("/show_application")
 def show_application():
     if 'loggedin' in session:
-        cursor=mysql.connection.cursor()
-        cursor.execute('SELECT * FROM choose ')
-        applicants=cursor.fetchall()
-        return render_template("applicant.html",applicants=applicants)
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(
+            'SELECT usernameA FROM Job ')
+        Admin = cursor.fetchone()
+        if session['usernameJ']==Admin['usernameA']:
+            cursor=mysql.connection.cursor()
+            cursor.execute('SELECT * FROM choose ')
+            applicants=cursor.fetchall()
+            return render_template("applicant.html",applicants=applicants)
+        return(redirect(url_for('LoginA')))
     return redirect(url_for('LoginA'))
 
 
