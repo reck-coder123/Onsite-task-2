@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for a Job</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header"><h1 id="heading">Job Hub</h1></div>
+    <div class="Bar">
+       <nav>
+        <ul>
+            <li ><a href="{{url_for('indexJ')}}">Back to Home</a></li>
+            
+            <li><a href="{{url_for('logout')}}">Log out</a></li>
+        </ul></nav>
+    </div><br><br>
+    <div align="center">
+        <div align="center" class="border">
+
+
+            
+            <h2 class="bottom" style="text-align: centre;">
+                Apply For Jobs
+            </h2></br>
+            <div class="border">
+                <table class="worddark" style="border: solid 6px ;"></br></br></br></br>
+                    <tr>
+                        <td id="c3">Job Profile</td>
+                        <td id="c4">Job description</td>
+                        
+                    </tr>
+                    {% for c in profile %} 
+                    <tr>
+                        <td id="c1"> {{c[1]}}</td>
+                        <td id="c2"> {{c[2]}}</td>
+                    </tr>
+                    {% endfor %}   
+                </table><br><br><br><br>
+                <h2 class="bottom" style="text-align: centre;">
+                    Apply For Jobs
+                </h2></br>
+                <form action="{{ url_for('select') }}" method="post">
+                    <input type="text" name="Name" placeholder="Enter Your Name"></br></br>
+                    <input type="text" name="jprofile" placeholder="Enter Job Profile"></br></br>
+                    <input type="submit" class="btn" value="Apply"></br></br>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

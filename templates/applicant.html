@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Applicants</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header"><h1 id="heading">Job applications</h1></div>
+    <div class="navbar">
+       <nav class="bar">
+        <ul>
+            <li ><a href="{{url_for('indexA')}}">Back to Home</a></li>
+            <li class="active"><a href="{{url_for('add_jobs')}}">Add Job Profiles</a></li>
+            <li><a href="{{url_for('logout')}}">Log out</a></li>
+        </ul></nav> 
+    </div><br><br>
+    <div align="center">
+        <div align="center" class="border">
+
+
+            
+            <h2 class="bottom" style="text-align: centre;">
+                See applications
+            </h2></br>
+            <div class="border">
+                <table class="worddark"></br></br></br></br>
+                    <tr>
+                        <td id="c3">Name</td>
+                        <td id="c4">Job Profile</td>
+                        
+                    </tr>
+                    {% for c in applicants %} 
+                    <tr>
+                        <td id="c1"> {{c[1]}}</td>
+                        <td id="c2"> {{c[2]}}</td>
+                    </tr>
+
+                    {% endfor %}   
+                </table>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title> Login For New applicant </title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">		
+	</head>
+	<body></br></br></br></br></br>
+		
+		<div align="center">
+		<div align="center" class="border">
+			<div class="heading">
+				<h1 > Job Hub </h1>
+			</div></br>
+			<div class="subhead"><h2 id="sub">The place where your talent meets your expectations<br>
+				</h2></div>
+			
+				<div class="sign-in">
+					
+					<h2 id="head">Login</h2>
+                    <h4>For New applicant</h4>
+				<form action="{{ url_for('LoginJ') }}" method="post" autocomplete="off">
+				<div class="msg">{{ msg }}</div>
+					<input id="usernameJ" name="usernameJ" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
+					<input id="passwordJ" name="passwordJ" type="password" placeholder="Enter Your Password" class="textbox"/></br></br></br>
+					<input type="submit" class="btn" value="Sign In"></br></br>
+				</form>
+			
+		</div>
+			<p id="info1">Dont't have an account? <a class="bottom" href="{{url_for('registerJ')}}"> Sign up here</a></p>
+		</div>
+	</div>
+	</body>
+</html>
+
+

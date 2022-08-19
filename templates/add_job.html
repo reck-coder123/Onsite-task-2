@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job Profiles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header" ><h1 >Job Hub</h1></div>
+    <div class="navbar">
+       <nav class="bar">
+        <ul>
+            <li ><a href="{{url_for('indexA')}}">Back to Home</a></li>
+            <li><a href="{{url_for('registerJ')}}">Job applications</a></li>
+            <li><a href="{{url_for('logout')}}">Log out</a></li>
+        </ul></nav>
+    </div><br><br>
+    <div >
+    <form action="{{ url_for('add_jobs') }}" method="post" class="Comm"><br><br>
+        <div class="msg">{{ msg }}</div><br><br>
+        <input type="text" name="job" placeholder="Add Job Profile"></br></br>
+        <textarea name="description" id="message" placeholder="Add description"></textarea>
+        
+        <input type="submit" name="submit" id="btn" value="submit">
+    </form>
+    </div>
+</body>
+</html>
