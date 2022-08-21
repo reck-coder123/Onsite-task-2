@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register for New applicant</title>
+	<link rel = "icon" href = 
+"https://st4.depositphotos.com/5040187/19667/v/380/depositphotos_196671168-stock-illustration-logo-swoosh-ellipse-green-letter.jpg?forcejpeg=true" 
+        type = "image/x-icon">
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body><br><br><br><br>
@@ -23,7 +26,7 @@
 				<form action="{{ url_for('registerJ') }}" method="post">
 					<div class="msg">{{ msg }}</div>
 					<input id="nameJ" name="nameJ" type="text" placeholder="Enter Your name" class="textbox" /></br></br>
-					<input id="usernameJ" name="usernameJ" type="text" placeholder="Enter Your Username"
+					<input id="usernameJ" name="username" type="text" placeholder="Enter Your Username"
 						class="textbox" /></br></br>
 					<input id="passwordJ" name="passwordJ" type="password" placeholder="Enter Your Password"
 						class="textbox" /></br></br>
@@ -33,7 +36,7 @@
                     </form>
     
                 </div>
-                <p id="info">Already have an account? <a class="bottom" href="{{url_for('LoginJ')}}"> Sign Up here</a></p>
+                <p id="info">Already have an account? <a class="bottom" href="{{url_for('LoginJ')}}"> Sign in here</a></p>
             </div>
         </div>
 </body>
