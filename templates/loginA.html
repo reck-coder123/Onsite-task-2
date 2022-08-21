@@ -2,6 +2,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title> Login For Administrator </title>
+		<link rel = "icon" href = 
+"https://st4.depositphotos.com/5040187/19667/v/380/depositphotos_196671168-stock-illustration-logo-swoosh-ellipse-green-letter.jpg?forcejpeg=true" 
+        type = "image/x-icon">
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">		
 	</head>
 	<body></br></br></br></br></br>
@@ -20,7 +23,7 @@
                     <h4>For Administrator</h4>
 				<form action="{{ url_for('LoginA') }}" method="post" autocomplete="off">
 				<div class="msg">{{ msg }}</div>
-					<input id="usernameA" name="usernameA" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
+					<input id="usernameA" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
 					<input id="passwordA" name="passwordA" type="password" placeholder="Enter Your Password" class="textbox"/></br></br></br>
 					<input type="submit" class="btn" value="Sign In"></br></br>
 				</form>
